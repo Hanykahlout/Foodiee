@@ -18,13 +18,10 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initlization()
-        
     }
-    
     func initlization(){
         
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
         editButtonFrame()
@@ -55,18 +52,10 @@ extension SignInViewController {
     
     func performLogin() {
         if cheakData(){
-            Authentication.init().signin(email: emailTextField.text!, password: passwordTextField.text!) { (status) in
+            Authentication.init().signin(email: emailTextField.text!, password: passwordTextField.text!) { (status,id) in
                 if status{
                     self.clear()
-                    
-                    FFirestore.init().getUserInfo { (status, users) in
-                        if status {
-                            let user = users![0]                            
-                            UserDefaultsData.init().save(name: user.name, email: user.email, password: user.password, phoneNumber: user.phoneNumber, address: user.address, dateOfBirth: user.dateOfBirth, imageString: user.imageString)
-                        }else{
-                            SCLAlertView().showError("Error", subTitle: "Error on get firebase user information")
-                        }
-                    }
+                    UserDefaultsData.init().save(id:id)
                     self.goToSecondNCView()
                 }else{
                     SCLAlertView().showError("Error", subTitle: "There is invalid Data!!")
@@ -85,11 +74,10 @@ extension SignInViewController {
     func cheakData() -> Bool {
         return !emailTextField.text!.isEmpty && !passwordTextField.text!.isEmpty
     }
-
+    
     func clear() {
         emailTextField.text = ""
         passwordTextField.text = ""
     }
-    
     
 }

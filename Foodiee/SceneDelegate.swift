@@ -19,6 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         guard let _ = (scene as? UIWindowScene) else { return }
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            delegate.window = window
+        }
         setRootScreen()
     }
     
@@ -26,16 +29,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let firestNC = storyboard.instantiateViewController(withIdentifier: "NCView") as! UINavigationController
         let secondNC = storyboard.instantiateViewController(withIdentifier: "NCView2") as! UINavigationController
-        let welcomeScreens = storyboard.instantiateViewController(withIdentifier: "ThreeWelcomesViewController") as! UINavigationController
+        let welcomeScreens = storyboard.instantiateViewController(withIdentifier: "ThreeWelcomesViewController") as! ThreeWelcomesViewController
         let isLoggedIn = Authentication.init().isLoggedin()
         if isLoggedIn{
             window?.rootViewController = secondNC
+            UserDefaults.standard.setValue("secondNC", forKey: "root")
         }else{
             if !UserDefaults.standard.bool(forKey: "FirstTime"){
                 window?.rootViewController = welcomeScreens
                 UserDefaults.standard.setValue(true, forKey: "FirstTime")
+                UserDefaults.standard.setValue("welcomeScreens", forKey: "root")
             }else{
                 window?.rootViewController = firestNC
+                UserDefaults.standard.setValue("firestNC", forKey: "root")
             }
         }
         window?.makeKeyAndVisible()

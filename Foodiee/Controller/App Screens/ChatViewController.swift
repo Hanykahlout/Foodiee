@@ -11,18 +11,22 @@ import UIKit
 class ChatViewController: UIViewController {
     
     @IBOutlet weak var chatTableView: UITableView!
+    @IBOutlet weak var messageTextField: UITextField!
     
+    @IBOutlet weak var textFieldViewHeight: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
-        chatTableView.delegate = self
-        chatTableView.dataSource = self
-        
+        initlization()
         // Do any additional setup after loading the view.
+    }
+    
+    func initlization() {
+        setDelegate()
+        addGestureRecognizerToTableView()
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
     }
-    
     @IBAction func backAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -30,6 +34,27 @@ class ChatViewController: UIViewController {
     @IBAction func callAction(_ sender: Any) {
         
     }
+    
+    @IBAction func emojiAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func plusAction(_ sender: Any) {
+        
+    }
+    func setDelegate() {
+        chatTableView.delegate = self
+        chatTableView.dataSource = self
+        messageTextField.delegate = self
+    }
+    func addGestureRecognizerToTableView() {
+        let g = UITapGestureRecognizer(target: self, action: #selector(stopEditing))
+        chatTableView.addGestureRecognizer(g)
+    }
+    @objc func stopEditing(){
+        messageTextField.endEditing(true)
+    }
+    
 }
 
 extension ChatViewController:UITableViewDataSource,UITableViewDelegate{
@@ -52,3 +77,46 @@ extension ChatViewController:UITableViewDataSource,UITableViewDelegate{
         return cell
     }
 }
+
+extension ChatViewController:UITextFieldDelegate{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.2) {
+            self.textFieldViewHeight.constant = 378
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        UIView.animate(withDuration: 0.2) {
+            self.textFieldViewHeight.constant = 60
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        saveToFirestore()
+        return true
+    }
+    
+    func saveToFirestore() {
+        let date = Date()
+        let calendar = Calendar.current
+        let nanosecond = calendar.component(.nanosecond, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let hour = calendar.component(.hour, from: date)
+        messageTextField.isEnabled = false
+        FFirestore.init().saveMessage(hour: hour, minutes: minutes, nanosecond: nanosecond, text: messageTextField.text!) { (status) in
+            if status{
+                self.messageTextField.isEnabled = true
+                self.messageTextField.text = ""
+                print("Hello Fucking World ")
+            }else{
+                
+            }
+        }
+    }
+    
+
+}
+

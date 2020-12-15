@@ -9,13 +9,12 @@
 import Foundation
 
 struct UserInfo {
-    
-    var imageString:String
+    var id:String
     var name:String
     var email:String
     var password:String
     var phoneNumber:String
     var address:String
     var dateOfBirth:String
-    
+    var haveAnImage:Bool
 }

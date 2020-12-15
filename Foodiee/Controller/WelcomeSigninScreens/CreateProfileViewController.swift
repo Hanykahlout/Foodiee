@@ -17,11 +17,12 @@ class CreateProfileViewController: UIViewController {
     @IBOutlet weak var phoneTextField: BottomBorderTextField!
     @IBOutlet weak var addressTextField: BottomBorderTextField!
     @IBOutlet weak var dateOfBirthTextField: BottomBorderTextField!
+    var imageURL:URL!
     
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         removeBackgroungNavBar()
+        imageURL = URL(fileURLWithPath: "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,15 +74,13 @@ class CreateProfileViewController: UIViewController {
 extension CreateProfileViewController {
     func performCreatingUser() {
         if cheackData(){
-            Authentication.init().signup(email: emailTextField.text!, password: passwordTextField.text!) { (status) in
-                if status{
-                    self.clear()
-                    self.save()
-                    self.goToSecondNC()
-                }else{
-                    SCLAlertView().showError("Error", subTitle: "There is Invalid Data !!")
+                Authentication.init().signup(email: emailTextField.text!, password: passwordTextField.text!) { (status,id)  in
+                    if status{
+                        self.save(id:id)
+                    }else{
+                        SCLAlertView().showError("Error", subTitle: "There is Invalid Data !!")
+                    }
                 }
-            }
         }else{
             SCLAlertView().showError("Error", subTitle: "There is an Empty Fields !!")
         }
@@ -101,18 +100,14 @@ extension CreateProfileViewController {
         navigationController?.present(vc, animated: true, completion: nil)
     }
     
-    func save(){
-        let imageData = imageView.image!.pngData()!
-        let imageString = imageData.base64EncodedString(options: .lineLength64Characters)
-        UserDefaultsData.init().save(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, phoneNumber: phoneTextField.text!, address: addressTextField.text!, dateOfBirth: dateOfBirthTextField.text!, imageString: imageString)
-        
-        FFirestore.init().saveUserInfo(imageString: imageString, name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, phoneNumber: phoneTextField.text!, address: addressTextField.text!, dateOfBirth: dateOfBirthTextField.text!) { (status) in
-            if status{
-                print("Succefully Add To Firebase")
-            }else{
-                print("Falid Add To Firebase")
-            }
-        }
+    func save(id:String){
+        UserDefaultsData.init().save(id: id)
+        FStorage.init().uploadImage(id: id, imageURL: imageURL) { (status) in
+        if status{
+            self.saveTheUserInFirebase(id:id,haveAnImage:true)
+        }else{
+            self.saveTheUserInFirebase(id:id,haveAnImage:false)
+        }}
     }
     
     func clear() {
@@ -122,6 +117,16 @@ extension CreateProfileViewController {
         phoneTextField.text = ""
         addressTextField.text = ""
         dateOfBirthTextField.text = ""
+    }
+    func saveTheUserInFirebase(id:String,haveAnImage:Bool) {
+        FFirestore.init().saveUserInfo(id:id, name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, phoneNumber: phoneTextField.text!, address: addressTextField.text!, dateOfBirth: dateOfBirthTextField.text!,haveAnImage: haveAnImage) { (status) in
+            if status{
+                self.clear()
+                self.goToSecondNC()
+            }else{
+                SCLAlertView().showError("Error", subTitle: "Falid Add To Firebase")
+            }
+        }
     }
 }
 
@@ -141,6 +146,9 @@ extension CreateProfileViewController : UIImagePickerControllerDelegate , UINavi
             imageView.image = editingImage
         }else if let orginalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = orginalImage
+        }
+        if let url = info[UIImagePickerController.InfoKey.imageURL] as? URL{
+            imageURL = url
         }
         dismiss(animated: true, completion: nil)
     }

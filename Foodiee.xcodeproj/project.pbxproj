@@ -66,6 +66,7 @@
 		91F2DF08251115D300161AAA /* OfferImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2DF07251115D300161AAA /* OfferImagesCollectionViewCell.swift */; };
 		A334319FE1A74281960BD23E /* Pods_Foodiee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E899506EA85F5B86E21975F /* Pods_Foodiee.framework */; };
 		FA022FC525750820007CDD84 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA022FC425750820007CDD84 /* MapViewController.swift */; };
+		FA1382F32587E2140046A8A0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1382F22587E2140046A8A0 /* Storage.swift */; };
 		FA5E4C2F2584030400430BD3 /* FFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E4C2E2584030400430BD3 /* FFirestore.swift */; };
 		FA5E4C4D2584047B00430BD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA5E4C4C2584047B00430BD3 /* GoogleService-Info.plist */; };
 		FA5E4C51258405F800430BD3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E4C50258405F800430BD3 /* Message.swift */; };
@@ -160,6 +161,7 @@
 		91F2DF07251115D300161AAA /* OfferImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		98597D865C666C6960A9AD88 /* Pods-Foodiee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodiee.debug.xcconfig"; path = "Target Support Files/Pods-Foodiee/Pods-Foodiee.debug.xcconfig"; sourceTree = "<group>"; };
 		FA022FC425750820007CDD84 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FA1382F22587E2140046A8A0 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		FA5E4C2E2584030400430BD3 /* FFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFirestore.swift; sourceTree = "<group>"; };
 		FA5E4C4C2584047B00430BD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA5E4C50258405F800430BD3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -380,9 +382,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA1382F12587E1F70046A8A0 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				FA1382F22587E2140046A8A0 /* Storage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		FA5E4C2C258402D500430BD3 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				FA1382F12587E1F70046A8A0 /* Storage */,
 				FA5E4C5B2584147300430BD3 /* Auth */,
 				FA5E4C4F258405E800430BD3 /* Model */,
 				FA5E4C2D258402DF00430BD3 /* Firestore */,
@@ -641,6 +652,7 @@
 				9135585D250E9BB70070D607 /* ThreeWelcomesViewController.swift in Sources */,
 				913084BC2517E85800794616 /* MyBagViewController.swift in Sources */,
 				9189B018250FD83D00F2F379 /* imagesCollectionViewCell.swift in Sources */,
+				FA1382F32587E2140046A8A0 /* Storage.swift in Sources */,
 				919135A62514036900D1D7D7 /* PromotionsViewController.swift in Sources */,
 				9158ACFB251254F7006E943C /* ProductDetailViewController.swift in Sources */,
 				91302B0125139DB200E2120D /* HistoryCellInfo.swift in Sources */,

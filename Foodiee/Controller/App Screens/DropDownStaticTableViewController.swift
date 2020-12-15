@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SCLAlertView
 class DropDownStaticTableViewController: UITableViewController {
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class DropDownStaticTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 6
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -49,8 +49,30 @@ class DropDownStaticTableViewController: UITableViewController {
         case 4:
             let vc = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
             navigationController?.pushViewController(vc, animated: true)
+        case 5:
+            logout()
         default:
             break
+        }
+    }
+    
+    func logout() {
+        Authentication.init().signOut { (status) in
+            if status{
+                UserDefaultsData.init().clear()
+                self.goToLoginScreen()
+            }else{
+                SCLAlertView().showError("Error", subTitle: "There is Some Error for logout process")
+            }
+        }
+    }
+    func goToLoginScreen()  {
+        let root = UserDefaults.standard.string(forKey: "root")
+        if root == "firestNC" || root == "welcomeScreens"{
+            navigationController?.dismiss(animated: true, completion: nil)
+        }else{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

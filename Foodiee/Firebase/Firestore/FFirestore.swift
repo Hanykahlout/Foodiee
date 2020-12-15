@@ -14,9 +14,8 @@ class FFirestore  {
     typealias sendBack = (_ status:Bool) -> Void
     
     let FS = Firestore.firestore()
-    
-    func saveMessage(text:String,time:String,imageString:String,sendback:@escaping sendBack) {
-        FS.collection("Messages").addDocument(data: ["text":text,"time":time,"imageString":imageString]).addSnapshotListener { (snapshot, error) in
+    func saveMessage(hour:Int,minutes:Int,nanosecond:Int,text:String,sendback:@escaping sendBack) {
+        FS.collection("Messages").addDocument(data: ["hour":hour,"minutes":minutes,"nanosecond":nanosecond,text:text]).addSnapshotListener { (snapshot, error) in
             if let _ = error{
                 sendback(false)
             }else{
@@ -32,8 +31,10 @@ class FFirestore  {
             if let _ = error {
                 sendback(false,nil)
             }else{
-                let messages = snapshote?.documents.compactMap({ Message(text: $0.data()["text"] as! String,
-                                                                         time: $0.data()["time"] as! String,
+                let messages = snapshote?.documents.compactMap({ Message(hour: $0.data()["hour"] as! Int,
+                                                                         minutes: $0.data()["minutes"] as! Int,
+                                                                         nanosecond:$0.data()["nanosecond"] as! Int,
+                                                                         text: $0.data()["text"] as! String,
                                                                          imageString: $0.data()["imageString"] as! String)
                 })
                 sendback(true,messages)
@@ -41,8 +42,8 @@ class FFirestore  {
         }
     }
     
-    func saveUserInfo(imageString:String,name:String,email:String,password:String,phoneNumber:String,address:String,dateOfBirth:String,sendback:@escaping sendBack) {
-        FS.collection("UserInfo").addDocument(data: ["imageString":imageString,"name":name,"email":email,"password":password,"phoneNumber":phoneNumber,"address":address,"dateOfBirth":dateOfBirth]).addSnapshotListener { (snapshot, error) in
+    func saveUserInfo(id:String,name:String,email:String,password:String,phoneNumber:String,address:String,dateOfBirth:String,haveAnImage:Bool,sendback:@escaping sendBack) {
+        FS.collection("UserInfo").addDocument(data: ["id":id,"name":name,"email":email,"password":password,"phoneNumber":phoneNumber,"address":address,"dateOfBirth":dateOfBirth,"Have_An_Image":haveAnImage]).addSnapshotListener { (snapshot, error) in
             if let _ = error{
                 sendback(false)
             }else{
@@ -51,17 +52,26 @@ class FFirestore  {
         }
     }
     
-    typealias sendBack3 = (_ status:Bool,_ data:[UserInfo]?) -> Void
+    typealias sendBack3 = (_ status:Bool,_ user:UserInfo?) -> Void
     
-    func getUserInfo(sendback:@escaping sendBack3) {
+    func getUserInfo(id:String,sendback:@escaping sendBack3) {
         FS.collection("UserInfo").getDocuments { (snapshote, error) in
             if let _ = error {
                 sendback(false,nil)
             }else{
-                let userInfo = snapshote?.documents.compactMap({
-                    UserInfo(imageString: $0.data()["imageString"] as! String, name: $0.data()["name"] as! String, email: $0.data()["email"] as! String,password: $0.data()["password"] as! String,phoneNumber: $0.data()["phoneNumber"] as! String, address: $0.data()["address"] as! String, dateOfBirth: $0.data()["dateOfBirth"] as! String)
-                })
-                sendback(true,userInfo)
+                var notFound = true
+                for doc in snapshote!.documents {
+                    if doc.data()["id"] as! String == id {
+                        let user:UserInfo = UserInfo(id:id,name: doc.data()["name"] as! String, email: doc.data()["email"] as! String, password: doc.data()["password"] as! String , phoneNumber: doc.data()["phoneNumber"] as! String, address: doc.data()["address"] as! String, dateOfBirth: doc.data()["dateOfBirth"] as! String,haveAnImage: doc.data()["Have_An_Image"] as! Bool)
+                        notFound = false
+                        sendback(true,user)
+                        break
+                    }
+                }
+                if notFound{
+                    sendback(false,nil)
+                }
+                
             }
         }
     }

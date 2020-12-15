@@ -48,18 +48,28 @@ class HomeViewController: UIViewController {
         setPageControls()
         setupTheOfferImagesSlider()
         setMealNames()
-        setUserImage()
+        setUserInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
         self.MenuView.frame = CGRect(x: 0, y: -445, width: self.MenuView.bounds.width, height: self.MenuView.bounds.height)
     }
-    func setUserImage() {
+    
+    func setUserInfo() {
         let userData = UserDefaultsData()
-        userName.text = userData.getUserName()
-        userImage.image = userData.getUserImage()
+        FFirestore.init().getUserInfo(id: userData.getUserId()) { (status, user) in
+            if status{
+                self.userName.text = user!.name
+                if !user!.haveAnImage{
+                    self.userImage.image = UIImage(named:"download")!
+                }else{
+                    FStorage.init().downloadImage(id: userData.getUserId(), imageView: self.userImage)
+                }
+            }
+        }
     }
+
     func setMealNames() {
         mealsNames.append(FavouriteMealNameInfo(mealName: "HHHHH", mealNameColor: UIColor(named: "Z1")!, selectedSignColor: UIColor(named: "Z1")!))
         mealsNames.append(FavouriteMealNameInfo(mealName: "HHHHH", mealNameColor: UIColor(named: "Z2")!, selectedSignColor: .white))
@@ -126,6 +136,8 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func addressAction(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func settingsAction(_ sender: Any) {
@@ -145,16 +157,19 @@ class HomeViewController: UIViewController {
    
     
     @IBAction func MenuAction(_ sender: Any) {
-        self.MenuView.frame = CGRect(x: 0, y: -445, width: self.MenuView.bounds.width, height: self.MenuView.bounds.height)
+        self.MenuView.frame = CGRect(x: 0, y: -490, width: self.MenuView.bounds.width, height: self.MenuView.bounds.height)
         UIView.animate(withDuration: 0.5) {
             self.MenuView.frame = CGRect(x: 0, y: 0, width: self.MenuView.bounds.width, height: self.MenuView.bounds.height)
+            self.MenuView.isHidden = false
         }
-        self.MenuView.isHidden = false
         viewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideMenu))
         childView.addGestureRecognizer(viewGestureRecognizer)
         
     }
     @objc func hideMenu(){
+        UIView.animate(withDuration: 0.5) {
+            self.MenuView.frame = CGRect(x: 0, y: -490, width: self.MenuView.bounds.width, height: self.MenuView.bounds.height)
+        }
         self.MenuView.isHidden = true
         childView.removeGestureRecognizer(viewGestureRecognizer)
     }

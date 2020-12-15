@@ -1060,6 +1060,32 @@ the new</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yFN-hu-aYq">
+                                        <rect key="frame" x="0.0" y="248" width="352" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yFN-hu-aYq" id="icB-aa-HhC">
+                                            <rect key="frame" x="0.0" y="0.0" width="352" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="power" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cLz-KX-W2Q">
+                                                    <rect key="frame" x="31" y="12.33333333333333" width="19.333333333333329" height="19.666666666666654"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZa-VT-QNy">
+                                                    <rect key="frame" x="65.333333333333329" y="13" width="49" height="18"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cLz-KX-W2Q" firstAttribute="centerY" secondItem="icB-aa-HhC" secondAttribute="centerY" id="3dF-Lc-2IN"/>
+                                                <constraint firstItem="KZa-VT-QNy" firstAttribute="centerY" secondItem="cLz-KX-W2Q" secondAttribute="centerY" id="NPM-Bn-HNa"/>
+                                                <constraint firstItem="cLz-KX-W2Q" firstAttribute="leading" secondItem="icB-aa-HhC" secondAttribute="leading" constant="31" id="kqG-ea-EnY"/>
+                                                <constraint firstItem="KZa-VT-QNy" firstAttribute="leading" secondItem="cLz-KX-W2Q" secondAttribute="trailing" constant="15" id="vT9-Ls-ttX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -2035,7 +2061,7 @@ the new</string>
                                 </constraints>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUa-7N-wM1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="445"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="490"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y1" translatesAutoresizingMaskIntoConstraints="NO" id="VQp-3w-73A" customClass="UIImageViewDesignable" customModule="Foodiee" customModuleProvider="target">
                                         <rect key="frame" x="31" y="62" width="66" height="66"/>
@@ -2079,16 +2105,16 @@ the new</string>
                                         </connections>
                                     </button>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BF3-eP-6Wp">
-                                        <rect key="frame" x="10" y="151" width="394" height="250"/>
+                                        <rect key="frame" x="10" y="151" width="394" height="290"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="vRh-9Z-jxq"/>
+                                            <constraint firstAttribute="height" constant="290" id="vRh-9Z-jxq"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="QVL-dc-R4R" kind="embed" id="5RK-3u-W6m"/>
                                         </connections>
                                     </containerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkg-Ud-nSo">
-                                        <rect key="frame" x="186" y="427" width="42" height="3"/>
+                                        <rect key="frame" x="186" y="472" width="42" height="3"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="7my-sQ-iIG"/>
@@ -2100,7 +2126,7 @@ the new</string>
                                 <constraints>
                                     <constraint firstItem="BF3-eP-6Wp" firstAttribute="leading" secondItem="vUa-7N-wM1" secondAttribute="leading" constant="10" id="9Cx-T6-6k2"/>
                                     <constraint firstItem="1zm-pg-5UT" firstAttribute="centerY" secondItem="VQp-3w-73A" secondAttribute="centerY" id="AjO-Lj-ddR"/>
-                                    <constraint firstAttribute="height" constant="445" id="ECK-yQ-XFX"/>
+                                    <constraint firstAttribute="height" constant="490" id="ECK-yQ-XFX"/>
                                     <constraint firstAttribute="trailing" secondItem="BF3-eP-6Wp" secondAttribute="trailing" constant="10" id="H7m-XV-ZHc"/>
                                     <constraint firstAttribute="bottom" secondItem="vkg-Ud-nSo" secondAttribute="bottom" constant="15" id="Lhh-St-jYl"/>
                                     <constraint firstItem="BF3-eP-6Wp" firstAttribute="top" secondItem="VQp-3w-73A" secondAttribute="bottom" constant="23" id="MBi-ik-haD"/>
@@ -4377,7 +4403,7 @@ for your order will be</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-Jh-ioo">
-                                <rect key="frame" x="0.0" y="156" width="414" height="659"/>
+                                <rect key="frame" x="0.0" y="156" width="414" height="646"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatSenderTableViewCell" rowHeight="100" id="Vxw-Hq-yoZ" customClass="ChatSenderTableViewCell" customModule="Foodiee" customModuleProvider="target">
@@ -4529,83 +4555,103 @@ for your order will be</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDD-yc-Kiu" customClass="ViewDesignable" customModule="Foodiee" customModuleProvider="target">
-                                <rect key="frame" x="32" y="815" width="350" height="54"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P87-9X-Dkv">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdD-Dj-DMc" customClass="ButtonDesignable" customModule="Foodiee" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="8.6666666666666288" width="37" height="37"/>
-                                        <color key="backgroundColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGl-Lr-phD" customClass="ViewDesignable" customModule="Foodiee" customModuleProvider="target">
+                                        <rect key="frame" x="32" y="5" width="350" height="54"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A38-oz-bMI" customClass="ButtonDesignable" customModule="Foodiee" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="8.6666666666666288" width="37" height="37"/>
+                                                <color key="backgroundColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="37" id="MWV-lW-dHB"/>
+                                                    <constraint firstAttribute="width" constant="37" id="wCg-X2-QOt"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="plus" catalog="system"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="18.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="plusAction:" destination="WHC-al-ECk" eventType="touchUpInside" id="O4W-48-ivR"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nX-JT-ppi" customClass="ButtonDesignable" customModule="Foodiee" customModuleProvider="target">
+                                                <rect key="frame" x="298" y="8.6666666666666288" width="37" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="37" id="vxk-jO-igi"/>
+                                                    <constraint firstAttribute="width" constant="37" id="zYG-G2-iqa"/>
+                                                </constraints>
+                                                <state key="normal" image="smile"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="18.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="emojiAction:" destination="WHC-al-ECk" eventType="touchUpInside" id="l45-Ac-5XO"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XwV-2k-6Vq">
+                                                <rect key="frame" x="67" y="0.0" width="216" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="37" id="48t-uy-3Tp"/>
-                                            <constraint firstAttribute="height" constant="37" id="oga-i3-4F7"/>
+                                            <constraint firstItem="XwV-2k-6Vq" firstAttribute="top" secondItem="VGl-Lr-phD" secondAttribute="top" id="CQ8-Nu-1mh"/>
+                                            <constraint firstItem="A38-oz-bMI" firstAttribute="centerY" secondItem="VGl-Lr-phD" secondAttribute="centerY" id="EUC-Ds-0Kh"/>
+                                            <constraint firstItem="5nX-JT-ppi" firstAttribute="leading" secondItem="XwV-2k-6Vq" secondAttribute="trailing" constant="15" id="Eb6-ue-rTs"/>
+                                            <constraint firstItem="XwV-2k-6Vq" firstAttribute="leading" secondItem="A38-oz-bMI" secondAttribute="trailing" constant="15" id="F4p-xE-keZ"/>
+                                            <constraint firstAttribute="height" constant="54" id="XPs-9F-r3v"/>
+                                            <constraint firstAttribute="trailing" secondItem="5nX-JT-ppi" secondAttribute="trailing" constant="15" id="XyW-UB-fyf"/>
+                                            <constraint firstItem="A38-oz-bMI" firstAttribute="leading" secondItem="VGl-Lr-phD" secondAttribute="leading" constant="15" id="dqC-se-H6R"/>
+                                            <constraint firstItem="5nX-JT-ppi" firstAttribute="leading" secondItem="XwV-2k-6Vq" secondAttribute="trailing" constant="15" id="jjA-gU-K4h"/>
+                                            <constraint firstAttribute="bottom" secondItem="XwV-2k-6Vq" secondAttribute="bottom" id="lx7-Jt-E1k"/>
+                                            <constraint firstItem="5nX-JT-ppi" firstAttribute="centerY" secondItem="VGl-Lr-phD" secondAttribute="centerY" id="tSx-wn-Fkm"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="plus" catalog="system"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="18.5"/>
+                                                <real key="value" value="27"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNq-cE-NWt" customClass="ButtonDesignable" customModule="Foodiee" customModuleProvider="target">
-                                        <rect key="frame" x="298" y="8.6666666666666288" width="37" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="37" id="8sY-hC-qER"/>
-                                            <constraint firstAttribute="height" constant="37" id="GSs-x8-arz"/>
-                                        </constraints>
-                                        <state key="normal" image="smile"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="18.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1W-hj-far">
-                                        <rect key="frame" x="67" y="0.0" width="216" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="kdD-Dj-DMc" firstAttribute="leading" secondItem="dDD-yc-Kiu" secondAttribute="leading" constant="15" id="0C1-C7-8LX"/>
-                                    <constraint firstAttribute="height" constant="54" id="3SA-i6-b8u"/>
-                                    <constraint firstItem="TNq-cE-NWt" firstAttribute="leading" secondItem="X1W-hj-far" secondAttribute="trailing" constant="15" id="6C2-eS-TU8"/>
-                                    <constraint firstItem="X1W-hj-far" firstAttribute="leading" secondItem="kdD-Dj-DMc" secondAttribute="trailing" constant="15" id="6qz-Vn-l45"/>
-                                    <constraint firstAttribute="bottom" secondItem="X1W-hj-far" secondAttribute="bottom" id="8Sc-aH-A2j"/>
-                                    <constraint firstItem="kdD-Dj-DMc" firstAttribute="centerY" secondItem="dDD-yc-Kiu" secondAttribute="centerY" id="Odp-wW-In2"/>
-                                    <constraint firstItem="TNq-cE-NWt" firstAttribute="leading" secondItem="X1W-hj-far" secondAttribute="trailing" constant="15" id="R6m-sH-IMK"/>
-                                    <constraint firstAttribute="trailing" secondItem="TNq-cE-NWt" secondAttribute="trailing" constant="15" id="So3-kS-13R"/>
-                                    <constraint firstItem="TNq-cE-NWt" firstAttribute="centerY" secondItem="dDD-yc-Kiu" secondAttribute="centerY" id="WFL-qN-KLZ"/>
-                                    <constraint firstItem="X1W-hj-far" firstAttribute="top" secondItem="dDD-yc-Kiu" secondAttribute="top" id="tTg-IK-gs0"/>
+                                    <constraint firstItem="VGl-Lr-phD" firstAttribute="leading" secondItem="P87-9X-Dkv" secondAttribute="leading" constant="32" id="0ER-AO-pty"/>
+                                    <constraint firstItem="VGl-Lr-phD" firstAttribute="top" secondItem="P87-9X-Dkv" secondAttribute="top" constant="5" id="1gb-wC-GHX"/>
+                                    <constraint firstAttribute="trailing" secondItem="VGl-Lr-phD" secondAttribute="trailing" constant="32" id="D8i-vw-luO"/>
+                                    <constraint firstAttribute="height" constant="60" id="MXb-Y7-UAW"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="27"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k7u-Rk-CXm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="dDD-yc-Kiu" secondAttribute="bottom" constant="27" id="FcV-Vz-0Ma"/>
+                            <constraint firstItem="P87-9X-Dkv" firstAttribute="top" secondItem="ahQ-Jh-ioo" secondAttribute="bottom" id="CD3-dG-VzM"/>
                             <constraint firstItem="ahQ-Jh-ioo" firstAttribute="leading" secondItem="k7u-Rk-CXm" secondAttribute="leading" id="GKV-IY-Ufr"/>
                             <constraint firstItem="fut-fG-59H" firstAttribute="centerX" secondItem="Gin-mC-IXD" secondAttribute="centerX" id="J3x-wH-aRL"/>
+                            <constraint firstItem="P87-9X-Dkv" firstAttribute="leading" secondItem="k7u-Rk-CXm" secondAttribute="leading" id="PRr-sH-kIV"/>
+                            <constraint firstItem="k7u-Rk-CXm" firstAttribute="bottom" secondItem="P87-9X-Dkv" secondAttribute="bottom" id="UYZ-Eu-beQ"/>
                             <constraint firstItem="ahQ-Jh-ioo" firstAttribute="top" secondItem="iJw-Iy-yWK" secondAttribute="bottom" constant="60" id="aXB-hb-Txo"/>
-                            <constraint firstItem="dDD-yc-Kiu" firstAttribute="top" secondItem="ahQ-Jh-ioo" secondAttribute="bottom" id="cNu-ac-jhU"/>
                             <constraint firstItem="gkg-Nb-tt6" firstAttribute="top" secondItem="Gin-mC-IXD" secondAttribute="top" constant="58" id="eKj-Cc-xc1"/>
+                            <constraint firstItem="k7u-Rk-CXm" firstAttribute="trailing" secondItem="P87-9X-Dkv" secondAttribute="trailing" id="eMk-N9-BIc"/>
                             <constraint firstItem="k7u-Rk-CXm" firstAttribute="trailing" secondItem="ahQ-Jh-ioo" secondAttribute="trailing" id="gsf-Xb-B7q"/>
                             <constraint firstItem="fut-fG-59H" firstAttribute="top" secondItem="Gin-mC-IXD" secondAttribute="top" constant="57" id="iOf-2B-sT4"/>
                             <constraint firstItem="k7u-Rk-CXm" firstAttribute="trailing" secondItem="iJw-Iy-yWK" secondAttribute="trailing" constant="20" id="q7k-XX-yac"/>
                             <constraint firstItem="iJw-Iy-yWK" firstAttribute="top" secondItem="Gin-mC-IXD" secondAttribute="top" constant="34" id="vN7-VN-RKD"/>
-                            <constraint firstItem="dDD-yc-Kiu" firstAttribute="leading" secondItem="k7u-Rk-CXm" secondAttribute="leading" constant="32" id="xUT-bJ-4s0"/>
                             <constraint firstItem="gkg-Nb-tt6" firstAttribute="leading" secondItem="k7u-Rk-CXm" secondAttribute="leading" constant="30.5" id="ySu-5v-dwx"/>
-                            <constraint firstItem="k7u-Rk-CXm" firstAttribute="trailing" secondItem="dDD-yc-Kiu" secondAttribute="trailing" constant="32" id="zPI-zZ-Zhd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chatTableView" destination="ahQ-Jh-ioo" id="VPr-yN-DXc"/>
+                        <outlet property="messageTextField" destination="XwV-2k-6Vq" id="Fxu-wq-7GU"/>
+                        <outlet property="textFieldViewHeight" destination="MXb-Y7-UAW" id="nvR-oq-fIl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGk-cB-zHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4692,6 +4738,9 @@ for your order will be</string>
         <designable name="5R0-uZ-uaU">
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
         </designable>
+        <designable name="5nX-JT-ppi">
+            <size key="intrinsicContentSize" width="35" height="35"/>
+        </designable>
         <designable name="5pw-q6-OQB">
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
         </designable>
@@ -4700,6 +4749,9 @@ for your order will be</string>
         </designable>
         <designable name="79k-hk-OH3">
             <size key="intrinsicContentSize" width="28.333333333333332" height="28.333333333333332"/>
+        </designable>
+        <designable name="A38-oz-bMI">
+            <size key="intrinsicContentSize" width="18" height="22"/>
         </designable>
         <designable name="Bhd-Ba-jQI">
             <size key="intrinsicContentSize" width="62" height="17"/>
@@ -4734,9 +4786,6 @@ for your order will be</string>
         <designable name="Sea-M8-wie">
             <size key="intrinsicContentSize" width="168" height="34"/>
         </designable>
-        <designable name="TNq-cE-NWt">
-            <size key="intrinsicContentSize" width="35" height="35"/>
-        </designable>
         <designable name="Ttc-XX-Z7j">
             <size key="intrinsicContentSize" width="39" height="34"/>
         </designable>
@@ -4757,9 +4806,6 @@ for your order will be</string>
         </designable>
         <designable name="get-Ku-cYI">
             <size key="intrinsicContentSize" width="24.666666666666668" height="22"/>
-        </designable>
-        <designable name="kdD-Dj-DMc">
-            <size key="intrinsicContentSize" width="18" height="22"/>
         </designable>
         <designable name="nsg-bj-Uw2">
             <size key="intrinsicContentSize" width="58" height="29"/>
@@ -4828,6 +4874,7 @@ for your order will be</string>
         <image name="myHert" width="18" height="17"/>
         <image name="phone12" width="62" height="62"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="power" catalog="system" width="128" height="124"/>
         <image name="qr-code" width="28.333333969116211" height="28.333333969116211"/>
         <image name="settings" width="19" height="19"/>
         <image name="smile" width="35" height="35"/>

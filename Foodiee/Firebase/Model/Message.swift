@@ -9,7 +9,10 @@
 import UIKit
 
 struct Message {
+    var hour:Int
+    var minutes:Int
+    var nanosecond:Int
     var text:String
-    var time:String
     var imageString:String
+    
 }

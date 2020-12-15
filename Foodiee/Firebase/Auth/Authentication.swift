@@ -11,23 +11,26 @@ import FirebaseAuth
 
 class Authentication {
     typealias CallBack =   (_ status:Bool) -> Void
-    func signin(email:String,password:String,callBack:@escaping CallBack) {
+    
+    typealias CallBack1 =   (_ status:Bool,_ id:String) -> Void
+    
+    func signin(email:String,password:String,callBack:@escaping CallBack1) {
         Auth.auth().signIn(withEmail: email, password: password) { (data, error) in
-            if let _error = error{
-                callBack(false)
+            if error != nil{
+                callBack(false,"")
                 return
             }
-            callBack(true)
+            callBack(true,data!.user.uid)
         }
     }
     
-    func signup(email:String,password:String,callBack:@escaping CallBack) {
+    func signup(email:String,password:String,callBack:@escaping CallBack1) {
         Auth.auth().createUser(withEmail: email, password: password) { (data, error) in
             if let _ = error {
-                callBack(false)
+                callBack(false,"")
                 return
             }
-            callBack(true)
+            callBack(true,data!.user.uid)
         }
     }
     
