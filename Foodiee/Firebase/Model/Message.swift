@@ -13,6 +13,5 @@ struct Message {
     var minutes:Int
     var nanosecond:Int
     var text:String
-    var imageString:String
     
 }

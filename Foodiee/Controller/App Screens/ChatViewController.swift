@@ -14,6 +14,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var messageTextField: UITextField!
     
     @IBOutlet weak var textFieldViewHeight: NSLayoutConstraint!
+    var messages:[Message] = [Message]()
     override func viewDidLoad() {
         super.viewDidLoad()
         initlization()
@@ -26,6 +27,7 @@ class ChatViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        getAllMessages()
     }
     @IBAction func backAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -54,26 +56,34 @@ class ChatViewController: UIViewController {
     @objc func stopEditing(){
         messageTextField.endEditing(true)
     }
-    
+    func getAllMessages() {
+        FFirestore.init().getMessages { (status, messages) in
+            if status{
+                self.messages = messages!
+                self.chatTableView.reloadData()
+            }
+        }
+    }
 }
 
 extension ChatViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ChatSenderTableViewCell") as! ChatSenderTableViewCell
-            cell.message.text = "hhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahsha"
-            cell.time.text = "10:12"
-            return cell
-            
-        }
+//        if indexPath.row % 2 == 0 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "ChatSenderTableViewCell") as! ChatSenderTableViewCell
+//            cell.message.text = "hhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahsha"
+//            cell.time.text = "10:12"
+//            return cell
+//
+//        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatReceiverTableViewCell") as! ChatReceiverTableViewCell
-        cell.message.text = "hhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhsahshahhssahshahhssahshahhssahshahhssahshahhs"
-        cell.time.text = "10:12"
+        let message = messages[indexPath.row]
+        print(message.text)
+        cell.setData(messageText: message.text, messageTime: "\(message.hour):\(message.minutes)")
         return cell
     }
 }
@@ -89,6 +99,7 @@ extension ChatViewController:UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         UIView.animate(withDuration: 0.2) {
+            self.getAllMessages()
             self.textFieldViewHeight.constant = 60
             self.view.layoutIfNeeded()
         }
@@ -110,13 +121,9 @@ extension ChatViewController:UITextFieldDelegate{
             if status{
                 self.messageTextField.isEnabled = true
                 self.messageTextField.text = ""
-                print("Hello Fucking World ")
             }else{
                 
             }
         }
     }
-    
-
 }
-

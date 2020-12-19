@@ -16,9 +16,15 @@ class ChatReceiverTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setImage()
     }
-
+    func setImage() {
+        FStorage.init().downloadImage(id: UserDefaultsData.init().getUserId(), imageView: receiverImage)
+    }
+    func setData(messageText:String,messageTime:String) {
+        message.text = messageText
+        time.text = messageTime
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

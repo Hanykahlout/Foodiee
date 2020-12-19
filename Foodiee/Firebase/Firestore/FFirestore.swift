@@ -15,7 +15,7 @@ class FFirestore  {
     
     let FS = Firestore.firestore()
     func saveMessage(hour:Int,minutes:Int,nanosecond:Int,text:String,sendback:@escaping sendBack) {
-        FS.collection("Messages").addDocument(data: ["hour":hour,"minutes":minutes,"nanosecond":nanosecond,text:text]).addSnapshotListener { (snapshot, error) in
+        FS.collection("Messages").addDocument(data: ["hour":hour,"minutes":minutes,"nanosecond":nanosecond,"text":text]).addSnapshotListener { (snapshot, error) in
             if let _ = error{
                 sendback(false)
             }else{
@@ -34,8 +34,7 @@ class FFirestore  {
                 let messages = snapshote?.documents.compactMap({ Message(hour: $0.data()["hour"] as! Int,
                                                                          minutes: $0.data()["minutes"] as! Int,
                                                                          nanosecond:$0.data()["nanosecond"] as! Int,
-                                                                         text: $0.data()["text"] as! String,
-                                                                         imageString: $0.data()["imageString"] as! String)
+                                                                         text: $0.data()["text"] as! String)
                 })
                 sendback(true,messages)
             }
