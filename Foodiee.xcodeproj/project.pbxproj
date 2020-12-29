@@ -11,7 +11,6 @@
 		9100A9762520867E00466FCC /* FavoritesSortButtonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9100A9752520867E00466FCC /* FavoritesSortButtonsCollectionViewCell.swift */; };
 		9100A9782520C02000466FCC /* DropDownStaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9100A9772520C02000466FCC /* DropDownStaticTableViewController.swift */; };
 		911AFD0B2521199100D9D43B /* FavouriteMealNameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911AFD0A2521199100D9D43B /* FavouriteMealNameInfo.swift */; };
-		9128B10C2522667C00859B1C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128B10B2522667C00859B1C /* UserManager.swift */; };
 		91302AF725136F6C00E2120D /* ProductSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91302AF625136F6C00E2120D /* ProductSearchViewController.swift */; };
 		91302AF9251380BE00E2120D /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91302AF8251380BE00E2120D /* SearchCollectionViewCell.swift */; };
 		91302AFB2513816000E2120D /* SearchCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91302AFA2513816000E2120D /* SearchCellInfo.swift */; };
@@ -104,7 +103,6 @@
 		9100A9752520867E00466FCC /* FavoritesSortButtonsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSortButtonsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9100A9772520C02000466FCC /* DropDownStaticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownStaticTableViewController.swift; sourceTree = "<group>"; };
 		911AFD0A2521199100D9D43B /* FavouriteMealNameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteMealNameInfo.swift; sourceTree = "<group>"; };
-		9128B10B2522667C00859B1C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		91302AF625136F6C00E2120D /* ProductSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchViewController.swift; sourceTree = "<group>"; };
 		91302AF8251380BE00E2120D /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		91302AFA2513816000E2120D /* SearchCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellInfo.swift; sourceTree = "<group>"; };
@@ -212,14 +210,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9128B10A2522667C00859B1C /* UserDefults */ = {
-			isa = PBXGroup;
-			children = (
-				9128B10B2522667C00859B1C /* UserManager.swift */,
-			);
-			path = UserDefults;
-			sourceTree = "<group>";
-		};
 		9158AFCD25127B5C007F4259 /* Cells Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +227,7 @@
 		9189B014250FD7C400F2F379 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				91E54DC32538F43C00004165 /* XIP One */,
+				91E54DC32538F43C00004165 /* XIP Cells */,
 				9189B017250FD83D00F2F379 /* imagesCollectionViewCell.swift */,
 				91F2DF07251115D300161AAA /* OfferImagesCollectionViewCell.swift */,
 				9158ACFC251276AF006E943C /* ReviewsTableViewCell.swift */,
@@ -269,21 +259,17 @@
 		91B15975250E278D000CBAE5 /* Foodiee */ = {
 			isa = PBXGroup;
 			children = (
-				FA5E4C4C2584047B00430BD3 /* GoogleService-Info.plist */,
+				FA5E7AD32556C82C00D829B9 /* fonts */,
+				FA0EE3482592A74700E248DA /* Extensions */,
+				FA0EE3432592A63800E248DA /* Resources */,
 				FA5E4C2C258402D500430BD3 /* Firebase */,
 				9189B014250FD7C400F2F379 /* cell */,
 				91B159BC250E3A8D000CBAE5 /* Model */,
 				91B159BA250E3A80000CBAE5 /* Controller */,
-				FA5E7AD32556C82C00D829B9 /* fonts */,
 				91B159A8250E3062000CBAE5 /* Designable */,
-				91B15978250E278D000CBAE5 /* SceneDelegate.swift */,
-				91B1597C250E278D000CBAE5 /* Main.storyboard */,
-				91B15976250E278D000CBAE5 /* AppDelegate.swift */,
-				91B1597F250E278F000CBAE5 /* Assets.xcassets */,
-				91B15981250E278F000CBAE5 /* LaunchScreen.storyboard */,
+				FA0EE3442592A65B00E248DA /* View */,
+				FA5E4C4C2584047B00430BD3 /* GoogleService-Info.plist */,
 				91B15984250E278F000CBAE5 /* Info.plist */,
-				FA7DCF6725653C5800AF99B0 /* GradientImageColor.swift */,
-				FA5E4C6825842B3300430BD3 /* UserDefaultsData.swift */,
 			);
 			path = Foodiee;
 			sourceTree = "<group>";
@@ -316,7 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				9158AFCD25127B5C007F4259 /* Cells Model */,
-				9128B10A2522667C00859B1C /* UserDefults */,
+				FA5E4C6825842B3300430BD3 /* UserDefaultsData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,13 +350,13 @@
 			path = CategoriesTabBarScreens;
 			sourceTree = "<group>";
 		};
-		91E54DC32538F43C00004165 /* XIP One */ = {
+		91E54DC32538F43C00004165 /* XIP Cells */ = {
 			isa = PBXGroup;
 			children = (
 				91E54DC62538F49500004165 /* CategoriesCollectionViewCell.swift */,
 				91E54DC72538F49500004165 /* CategoriesCollectionViewCell.xib */,
 			);
-			path = "XIP One";
+			path = "XIP Cells";
 			sourceTree = "<group>";
 		};
 		C4A6A97F42D83BECCB040857 /* Pods */ = {
@@ -380,6 +366,41 @@
 				4457CFB94CB8ADB7D9568024 /* Pods-Foodiee.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA0EE3432592A63800E248DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				91B15978250E278D000CBAE5 /* SceneDelegate.swift */,
+				91B15976250E278D000CBAE5 /* AppDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA0EE3442592A65B00E248DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA0EE3452592A68A00E248DA /* Storyboards */,
+				91B1597F250E278F000CBAE5 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA0EE3452592A68A00E248DA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				91B1597C250E278D000CBAE5 /* Main.storyboard */,
+				91B15981250E278F000CBAE5 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FA0EE3482592A74700E248DA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA7DCF6725653C5800AF99B0 /* GradientImageColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FA1382F12587E1F70046A8A0 /* Storage */ = {
@@ -629,7 +650,6 @@
 				FA5E4C51258405F800430BD3 /* Message.swift in Sources */,
 				91B159B3250E3062000CBAE5 /* IconTextField.swift in Sources */,
 				914F1E25251BE0F000FD88E6 /* ChatReceiverTableViewCell.swift in Sources */,
-				9128B10C2522667C00859B1C /* UserManager.swift in Sources */,
 				91302AFF2513952D00E2120D /* HistoryMealTableViewCell.swift in Sources */,
 				91F2DF08251115D300161AAA /* OfferImagesCollectionViewCell.swift in Sources */,
 				91302AF9251380BE00E2120D /* SearchCollectionViewCell.swift in Sources */,
@@ -816,6 +836,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4555W33KRL;
 				INFOPLIST_FILE = Foodiee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -835,6 +856,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4555W33KRL;
 				INFOPLIST_FILE = Foodiee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

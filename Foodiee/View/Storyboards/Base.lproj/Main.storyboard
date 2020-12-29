@@ -2544,7 +2544,7 @@ the new</string>
                                         <rect key="frame" x="64" y="125" width="186" height="221"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FREE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTD-ee-3xQ">
-                                                <rect key="frame" x="31" y="181" width="150" height="77"/>
+                                                <rect key="frame" x="31" y="181" width="144" height="77"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="77" id="Aly-D3-vK1"/>
                                                 </constraints>
@@ -2553,7 +2553,7 @@ the new</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4t4-sP-2f7">
-                                                <rect key="frame" x="122.66666666666664" y="0.0" width="63.333333333333329" height="189"/>
+                                                <rect key="frame" x="106.33333333333334" y="0.0" width="79.666666666666657" height="189"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="189" id="A3p-Pu-mNn"/>
                                                 </constraints>
@@ -2562,7 +2562,7 @@ the new</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fp-Z4-Kqu">
-                                                <rect key="frame" x="0.0" y="27" width="110.33333333333333" height="77"/>
+                                                <rect key="frame" x="0.0" y="27" width="101" height="77"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="77" id="vpP-kz-2mS"/>
                                                 </constraints>
@@ -2571,7 +2571,7 @@ the new</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a7-xL-uB9">
-                                                <rect key="frame" x="18.999999999999993" y="104" width="90.333333333333314" height="77"/>
+                                                <rect key="frame" x="19.000000000000007" y="104" width="93.666666666666686" height="77"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="77" id="R7h-Wl-6RR"/>
                                                 </constraints>
@@ -4666,7 +4666,7 @@ for your order will be</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGk-cB-zHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14200.000000000002" y="116.51785714285714"/>
+            <point key="canvasLocation" x="14145" y="108"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oSy-Rw-Q9w">

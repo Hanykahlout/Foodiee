@@ -77,6 +77,10 @@ extension CreateProfileViewController {
                 Authentication.init().signup(email: emailTextField.text!, password: passwordTextField.text!) { (status,id)  in
                     if status{
                         self.save(id:id)
+                        let NCView2 = self.storyboard?.instantiateViewController(identifier: "NCView2")
+                        let window = UIApplication.shared.windows.first
+                        window?.rootViewController = NCView2
+                        window?.makeKeyAndVisible()
                     }else{
                         SCLAlertView().showError("Error", subTitle: "There is Invalid Data !!")
                     }

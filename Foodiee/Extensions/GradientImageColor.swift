@@ -13,6 +13,7 @@ struct GradientPoint {
    var color: UIColor
 }
 
+// for GradientImageColor
 extension UIImage {
     
 convenience init?(size: CGSize, gradientPoints: [GradientPoint]) {
