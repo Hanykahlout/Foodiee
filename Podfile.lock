@@ -349,6 +349,7 @@ PODS:
   - SDWebImage (5.9.5):
     - SDWebImage/Core (= 5.9.5)
   - SDWebImage/Core (5.9.5)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - AlamofireObjectMapper (~> 5.2)
@@ -359,6 +360,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI/Storage
   - SCLAlertView
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
@@ -388,6 +390,7 @@ SPEC REPOS:
     - PromisesObjC
     - SCLAlertView
     - SDWebImage
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -416,7 +419,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 7ffd8c413058ee176710f198bd8b8cd5148a7a3f
+PODFILE CHECKSUM: 7def7c4e0d9a2f332e72f1497dbfbe3744c25e3e
 
 COCOAPODS: 1.10.0

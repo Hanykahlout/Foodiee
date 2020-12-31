@@ -40,8 +40,7 @@ class FFirestore  {
             }
         }
     }
-    
-    func saveUserInfo(id:String,name:String,email:String,password:String,phoneNumber:String,address:String,dateOfBirth:String,haveAnImage:Bool,sendback:@escaping sendBack) {
+    func saveUserInfo(id:String,name:String,email:String,password:String, phoneNumber: String, address: String, dateOfBirth: String,haveAnImage: Bool,sendback:@escaping sendBack) {
         FS.collection("UserInfo").addDocument(data: ["id":id,"name":name,"email":email,"password":password,"phoneNumber":phoneNumber,"address":address,"dateOfBirth":dateOfBirth,"Have_An_Image":haveAnImage]).addSnapshotListener { (snapshot, error) in
             if let _ = error{
                 sendback(false)

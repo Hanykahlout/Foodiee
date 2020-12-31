@@ -8,14 +8,17 @@
 
 import UIKit
 import FirebaseAuth
-
+import SVProgressHUD
+import SCLAlertView
 class Authentication {
     typealias CallBack =   (_ status:Bool) -> Void
     
     typealias CallBack1 =   (_ status:Bool,_ id:String) -> Void
     
     func signin(email:String,password:String,callBack:@escaping CallBack1) {
+        SVProgressHUD.show(withStatus: "Signing in")
         Auth.auth().signIn(withEmail: email, password: password) { (data, error) in
+            SVProgressHUD.dismiss()
             if error != nil{
                 callBack(false,"")
                 return
@@ -25,7 +28,9 @@ class Authentication {
     }
     
     func signup(email:String,password:String,callBack:@escaping CallBack1) {
+        SVProgressHUD.show(withStatus: "Signing up")
         Auth.auth().createUser(withEmail: email, password: password) { (data, error) in
+            SVProgressHUD.dismiss()
             if let _ = error {
                 callBack(false,"")
                 return
@@ -50,4 +55,12 @@ class Authentication {
         }
     }
     
+    func signInWithFacebook(token:String,callback: @escaping CallBack) {
+        Auth.auth().signIn(withCustomToken: token) { (authResult, error) in
+            if let error = error{
+                callback(false)
+            }
+            callback(true)
+        }
+    }
 }
